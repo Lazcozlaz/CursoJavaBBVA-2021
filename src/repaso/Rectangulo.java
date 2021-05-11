@@ -14,7 +14,7 @@ public class Rectangulo extends Figura {
 	}
 
 	public Rectangulo(String nombre, float base, float altura) {
-		super();
+		super(nombre);
 		this.base = base;
 		this.altura = altura;
 	}

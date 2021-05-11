@@ -1,0 +1,5 @@
+{“tipo”:2,nombre:”circ”,“valores”:”r=2.0},
+{“tipo”:1,nombre:”cuad”,“valores”:”l=4.0},
+{“tipo”:3,nombre:”rect”,“valores”:”b=5.0-a=2.0},
+{“tipo”:4,nombre:”tri”,“valores”:”b=2.0-a=5.0},
+{“tipo”:5,nombre:”pol_reg”,“valores”:”l=10-n=4-a=5.0},
