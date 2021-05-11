@@ -138,7 +138,7 @@ public class FiguraFileUtil {
 	
 	public static ArrayList<Figura> leerArchivo(String nombreArchivo, String path) {
 		
-		ArrayList<Figura> figuras = new ArrayList<Figura>();
+ArrayList<Figura> figuras = new ArrayList<Figura>();
 		
 		File archivo = null;
 	      FileReader fr = null;
@@ -149,15 +149,71 @@ public class FiguraFileUtil {
 	         archivo = new File (path+nombreArchivo);
 	         fr = new FileReader (archivo);
 	         br = new BufferedReader(fr);
-
+	         char tipo='0';
 	         String linea;
 	         while((linea=br.readLine())!=null)
-	            System.out.println(linea);
+	          tipo=linea.charAt(9);
+	         if (tipo == '1') {
+	        	 String[] partes = linea.split(",");
+	        	 String nombre = partes[1].substring(8, partes[1].length());
+	        	 String valores = partes[2].substring(15,partes[2].length()-2);
+	        	 valores = valores.substring(3,valores.length());
+	        	 float lado = Float.parseFloat(valores);
+	        	 Cuadrado cuad = new Cuadrado(nombre,lado);
+	        	 figuras.add(cuad);
+	         }
+	         if (tipo == '2') {
+	        	 String[] partes = linea.split(",");
+	        	 String nombre = partes[1].substring(8, partes[1].length());
+	        	 String valores = partes[2].substring(15,partes[2].length()-2);
+	        	 valores = valores.substring(3,valores.length());
+	        	 float lado = Float.parseFloat(valores);
+	        	 Circulo circ = new Circulo(nombre,lado);
+	        	 figuras.add(circ);
+	         }
+	         if (tipo == '3') {
+	        	 String[] partes = linea.split(",");
+	        	 String nombre = partes[1].substring(8, partes[1].length());
+	        	 String valores = partes[2].substring(15,partes[2].length()-2);
+	        	 valores = valores.substring(3,valores.length());
+	        	 String lados[] =valores.split("-");
+	        	 
+	        	 float base = Float.parseFloat(lados[0].substring(3,valores.length()));
+	        	 float altura = Float.parseFloat(lados[1].substring(3,valores.length()));
+	        	 Rectangulo rectl = new Rectangulo(nombre,base,altura);
+	        	 figuras.add(rectl);
+	         }
+	         if (tipo == '4') {
+	        	 String[] partes = linea.split(",");
+	        	 String nombre = partes[1].substring(8, partes[1].length());
+	        	 String valores = partes[2].substring(15,partes[2].length()-2);
+	        	 valores = valores.substring(3,valores.length());
+	        	 String lados[] =valores.split("-");
+	        	 
+	        	 float base = Float.parseFloat(lados[0].substring(3,valores.length()));
+	        	 float altura = Float.parseFloat(lados[1].substring(3,valores.length()));
+	        	 Triangulo tri = new Triangulo(nombre,base,altura);
+	        	 figuras.add(tri);
+	         }
+	         if (tipo == '5') {
+	        	 String[] partes = linea.split(",");
+	        	 String nombre = partes[1].substring(8, partes[1].length());
+	        	 String valores = partes[2].substring(15,partes[2].length()-2);
+	        	 valores = valores.substring(3,valores.length());
+	        	 String lados[] =valores.split("-");
+	        	 
+	        	 int lado = Integer.parseInt(lados[0].substring(3,valores.length()));
+	        	 int n_lados = Integer.parseInt(lados[1].substring(3,valores.length()));
+	        	 float apotema = Float.parseFloat(lados[2].substring(3,valores.length()));
+	        	 PoligonoRegular pol_reg = new PoligonoRegular(nombre,apotema,n_lados,lado);
+	        	 figuras.add(pol_reg);
+	         }
+	         
 	      }
 	      catch(Exception e){
 	         e.printStackTrace();
 	      }finally{
-	        
+
 	         try{                    
 	            if( null != fr ){   
 	               fr.close();     
@@ -168,7 +224,7 @@ public class FiguraFileUtil {
 	      }
 		
 		return figuras;
-		
+	}
 	}
 	public ArrayList<Figura> leerArchivo(){
 		ArrayList<Figura> figuras = new ArrayList<Figura>();
@@ -193,6 +249,7 @@ public class FiguraFileUtil {
 	        	 valores = valores.substring(3,valores.length());
 	        	 float lado = Float.parseFloat(valores);
 	        	 Cuadrado cuad = new Cuadrado(nombre,lado);
+	        	 figuras.add(cuad);
 	         }
 	         if (tipo == '2') {
 	        	 String[] partes = linea.split(",");
@@ -201,6 +258,7 @@ public class FiguraFileUtil {
 	        	 valores = valores.substring(3,valores.length());
 	        	 float lado = Float.parseFloat(valores);
 	        	 Circulo circ = new Circulo(nombre,lado);
+	        	 figuras.add(circ);
 	         }
 	         if (tipo == '3') {
 	        	 String[] partes = linea.split(",");
@@ -212,6 +270,7 @@ public class FiguraFileUtil {
 	        	 float base = Float.parseFloat(lados[0].substring(3,valores.length()));
 	        	 float altura = Float.parseFloat(lados[1].substring(3,valores.length()));
 	        	 Rectangulo rectl = new Rectangulo(nombre,base,altura);
+	        	 figuras.add(rectl);
 	         }
 	         if (tipo == '4') {
 	        	 String[] partes = linea.split(",");
@@ -223,6 +282,7 @@ public class FiguraFileUtil {
 	        	 float base = Float.parseFloat(lados[0].substring(3,valores.length()));
 	        	 float altura = Float.parseFloat(lados[1].substring(3,valores.length()));
 	        	 Triangulo tri = new Triangulo(nombre,base,altura);
+	        	 figuras.add(tri);
 	         }
 	         if (tipo == '5') {
 	        	 String[] partes = linea.split(",");
@@ -235,6 +295,7 @@ public class FiguraFileUtil {
 	        	 int n_lados = Integer.parseInt(lados[1].substring(3,valores.length()));
 	        	 float apotema = Float.parseFloat(lados[2].substring(3,valores.length()));
 	        	 PoligonoRegular pol_reg = new PoligonoRegular(nombre,apotema,n_lados,lado);
+	        	 figuras.add(pol_reg);
 	         }
 	         
 	      }
