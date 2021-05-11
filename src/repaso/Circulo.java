@@ -41,7 +41,7 @@ public class Circulo extends Figura {
 
 	@Override
 	public String getValores() {
-		StringBuilder sb = new StringBuilder("l=");
+		StringBuilder sb = new StringBuilder("r=");
 		sb.append(radio);
 		
 		return sb.toString();

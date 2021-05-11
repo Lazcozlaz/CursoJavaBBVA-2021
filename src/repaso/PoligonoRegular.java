@@ -61,8 +61,11 @@ public class PoligonoRegular extends Figura{
 
 	@Override
 	public String getValores() {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuilder sb = new StringBuilder("l=");
+		sb.append(lado);
+		sb.append("-n="+cantidadDeLados+"-a="+apotema);
+		
+		return sb.toString();
 	}
 
 	@Override
