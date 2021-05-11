@@ -225,7 +225,7 @@ ArrayList<Figura> figuras = new ArrayList<Figura>();
 		
 		return figuras;
 	}
-	}
+
 	public ArrayList<Figura> leerArchivo(){
 		ArrayList<Figura> figuras = new ArrayList<Figura>();
 		
