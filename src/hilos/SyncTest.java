@@ -8,18 +8,22 @@ public class SyncTest {
 
     Producer p1 = new Producer(stack);
     Thread prodT1 = new Thread (p1);
+    prodT1.setPriority(10);
     prodT1.start();
 
     Producer p2 = new Producer(stack);
     Thread prodT2 = new Thread (p2);
+    prodT2.setPriority(1);
     prodT2.start();
 
     Consumer c1 = new Consumer(stack);
     Thread consT1 = new Thread (c1);
+    consT1.setPriority(10);
     consT1.start();
 
     Consumer c2 = new Consumer(stack);
     Thread consT2 = new Thread (c2);
+    consT2.setPriority(1);
     consT2.start();
   }
 }
