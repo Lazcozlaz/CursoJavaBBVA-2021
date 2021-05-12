@@ -153,62 +153,59 @@ ArrayList<Figura> figuras = new ArrayList<Figura>();
 	         br = new BufferedReader(fr);
 	         char tipo='0';
 	         String linea;
-	         while((linea=br.readLine())!=null)
-	          tipo=linea.charAt(9);
+	         while((linea=br.readLine())!=null) {
+	         tipo=linea.charAt(8);
+	         System.out.println(tipo);
 	         if (tipo == '1') {
 	        	 String[] partes = linea.split(",");
-	        	 String nombre = partes[1].substring(8, partes[1].length());
-	        	 String valores = partes[2].substring(15,partes[2].length()-2);
-	        	 valores = valores.substring(3,valores.length());
+	        	 String nombre = partes[1].substring(8, partes[1].length()-1);
+	        	 String valores = partes[2].substring(13,partes[2].length()-1);		        	 
 	        	 float lado = Float.parseFloat(valores);
 	        	 Cuadrado cuad = new Cuadrado(nombre,lado);
 	        	 figuras.add(cuad);
 	         }
 	         if (tipo == '2') {
 	        	 String[] partes = linea.split(",");
-	        	 String nombre = partes[1].substring(8, partes[1].length());
-	        	 String valores = partes[2].substring(15,partes[2].length()-2);
-	        	 valores = valores.substring(3,valores.length());
+	        	 String nombre = partes[1].substring(8, partes[1].length()-1);
+	        	 String valores = partes[2].substring(13,partes[2].length()-1);		        	 
 	        	 float lado = Float.parseFloat(valores);
 	        	 Circulo circ = new Circulo(nombre,lado);
 	        	 figuras.add(circ);
 	         }
 	         if (tipo == '3') {
 	        	 String[] partes = linea.split(",");
-	        	 String nombre = partes[1].substring(8, partes[1].length());
-	        	 String valores = partes[2].substring(15,partes[2].length()-2);
-	        	 valores = valores.substring(3,valores.length());
+	        	 String nombre = partes[1].substring(8, partes[1].length()-1);
+	        	 String valores = partes[2].substring(11,partes[2].length());
+	        	 valores = valores.substring(2,valores.length());
 	        	 String lados[] =valores.split("-");
-	        	 
-	        	 float base = Float.parseFloat(lados[0].substring(3,valores.length()));
-	        	 float altura = Float.parseFloat(lados[1].substring(3,valores.length()));
+	        	 float base = Float.parseFloat(lados[0].substring(0,lados[0].length()));
+	        	 float altura = Float.parseFloat(lados[1].substring(2,lados[1].length()-1));
 	        	 Rectangulo rectl = new Rectangulo(nombre,base,altura);
 	        	 figuras.add(rectl);
 	         }
 	         if (tipo == '4') {
 	        	 String[] partes = linea.split(",");
-	        	 String nombre = partes[1].substring(8, partes[1].length());
-	        	 String valores = partes[2].substring(15,partes[2].length()-2);
-	        	 valores = valores.substring(3,valores.length());
+	        	 String nombre = partes[1].substring(8, partes[1].length()-1);
+	        	 String valores = partes[2].substring(11,partes[2].length());
+	        	 valores = valores.substring(2,valores.length());
 	        	 String lados[] =valores.split("-");
-	        	 
-	        	 float base = Float.parseFloat(lados[0].substring(3,valores.length()));
-	        	 float altura = Float.parseFloat(lados[1].substring(3,valores.length()));
+	        	 float base = Float.parseFloat(lados[0].substring(0,lados[0].length()));
+	        	 float altura = Float.parseFloat(lados[1].substring(2,lados[1].length()-1));
 	        	 Triangulo tri = new Triangulo(nombre,base,altura);
 	        	 figuras.add(tri);
 	         }
 	         if (tipo == '5') {
 	        	 String[] partes = linea.split(",");
 	        	 String nombre = partes[1].substring(8, partes[1].length());
-	        	 String valores = partes[2].substring(15,partes[2].length()-2);
-	        	 valores = valores.substring(3,valores.length());
+	        	 String valores = partes[2].substring(12,partes[2].length()-2);
 	        	 String lados[] =valores.split("-");
-	        	 
-	        	 int lado = Integer.parseInt(lados[0].substring(3,valores.length()));
-	        	 int n_lados = Integer.parseInt(lados[1].substring(3,valores.length()));
-	        	 float apotema = Float.parseFloat(lados[2].substring(3,valores.length()));
+	        	 System.out.println(lados[0]);
+	        	 int lado = Integer.parseInt(lados[0].substring(1,lados[0].length()));
+	        	 int n_lados = Integer.parseInt(lados[1].substring(2,lados[1].length()));
+	        	 float apotema = Float.parseFloat(lados[2].substring(2,lados[2].length()));
 	        	 PoligonoRegular pol_reg = new PoligonoRegular(nombre,apotema,n_lados,lado);
 	        	 figuras.add(pol_reg);
+	         }
 	         }
 	         
 	      }
