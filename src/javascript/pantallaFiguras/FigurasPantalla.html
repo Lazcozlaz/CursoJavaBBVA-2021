@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+</head>
+<body>
+<select name="figuras" id="figuras">
+</select>
+<p id="info"></p>
+ <script type="text/javascript">
+ 		function mostrar_info(fig){
+ 			if (fig == "Cuadrado"){
+ 				document.getElementById("info").innerHTML="Lado";
+ 			}
+ 			else if(fig=="Circulo"){
+ 				document.getElementById("info").innerHTML="Radio";
+ 			}
+ 			else if(fig=="Rectangulo"){
+ 				document.getElementById("info").innerHTML= "Base y Altura";
+ 			}
+ 			else if(fig=="Triangulo"){
+ 				document.getElementById("info").innerHTML="Base y Altura";
+ 			}
+ 			else if(fig=="Poligono"){
+ 				document.getElementById("info").innerHTML="Lado num lados y apotema";
+ 			}
+ 		}
+        function cargar_figuras()
+        {
+        	var array = ["Cuadrado", "Circulo", "Rectangulo", "Triangulo", "Poligono"];
+            for(var i in array)
+            { 
+                document.getElementById("figuras").innerHTML += "<option value='"+array[i]+"'onClick=mostrar_info('"+array[i]+"');>"+array[i]+"</option>"; 
+
+            }
+    }
+
+    cargar_figuras();
+    
+
+    </script>
+
+</body>
+</html>
